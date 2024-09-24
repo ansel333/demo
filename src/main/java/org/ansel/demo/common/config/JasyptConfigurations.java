@@ -6,10 +6,6 @@ import org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Base64;
-
 @Configuration
 public class JasyptConfigurations {
 
