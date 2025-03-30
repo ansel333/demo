@@ -12,20 +12,13 @@ import org.zalando.logbook.json.JsonHttpLogFormatter;
 @Configuration
 public class LogbookConfiguration {
 
-    @Bean
-    public Logbook logbook(LogbookProperties logbookProperties) {
-        return Logbook.builder()
-                .condition(
-                        Conditions.exclude(
-                                logbookProperties.getExclude().stream().map(Conditions::requestTo).toList()
-                        )
-                )
-                .sink(
-                        new DefaultSink(
-                                new JsonHttpLogFormatter(),
-                                new InfoHttpLogWriter()
-                        )
-                )
-                .build();
-    }
+  @Bean
+  public Logbook logbook(LogbookProperties logbookProperties) {
+    return Logbook.builder()
+        .condition(
+            Conditions.exclude(
+                logbookProperties.getExclude().stream().map(Conditions::requestTo).toList()))
+        .sink(new DefaultSink(new JsonHttpLogFormatter(), new InfoHttpLogWriter()))
+        .build();
+  }
 }

@@ -12,12 +12,11 @@ import java.util.Map;
 @RequestMapping("/api")
 public class HelloController {
 
-    @GetMapping("/hello")
-    public Map<String, String> hello(
-            @RequestParam(required = false, defaultValue = "world") String name
-    ) {
-        Map<String, String> result = Maps.newHashMap();
-        result.put("message", "hello " + name);
-        return result;
-    }
+  @GetMapping("/hello")
+  public Map<String, String> hello(
+      @RequestParam(required = false, defaultValue = "world") String name) {
+    Map<String, String> result = Maps.newHashMap();
+    result.put("message", "hello " + name);
+    return result;
+  }
 }
