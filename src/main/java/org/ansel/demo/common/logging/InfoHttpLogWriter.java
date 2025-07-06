@@ -6,6 +6,8 @@ import org.zalando.logbook.Correlation;
 import org.zalando.logbook.HttpLogWriter;
 import org.zalando.logbook.Precorrelation;
 
+import javax.annotation.Nonnull;
+
 @NoArgsConstructor
 @Slf4j
 public class InfoHttpLogWriter implements HttpLogWriter {
@@ -16,12 +18,12 @@ public class InfoHttpLogWriter implements HttpLogWriter {
   }
 
   @Override
-  public void write(Precorrelation precorrelation, String request) {
+  public void write(@Nonnull Precorrelation precorrelation, @Nonnull String request) {
     log.info("{} - {}", request, precorrelation);
   }
 
   @Override
-  public void write(Correlation correlation, String response) {
+  public void write(@Nonnull Correlation correlation, @Nonnull String response) {
     log.info("{} - {}", correlation, response);
   }
 }
